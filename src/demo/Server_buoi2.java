@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Sever_buoi1 {
+public class Server_buoi2 {
     public static void main(String[] args) {
         try {
             System.out.println("Server Start");

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client_buoi1 {
+public class Client_buoi2 {
     public static void main(String[] args) {
         try{
             System.out.println("Client Start");
