@@ -14,9 +14,9 @@ public class UDP_client {
         //B2: chuan bi du lieu de gui
         String str ="Xin chao ca nha";
         byte[] dataout = str.getBytes();
-        InetAddress sv = InetAddress.getByName("localhost");
+        InetAddress ip_sv = InetAddress.getByName("localhost");
         //B3: Dong goi va gui du lieu
-        DatagramPacket datagrout = new DatagramPacket(dataout, dataout.length,sv,3000);
+        DatagramPacket datagrout = new DatagramPacket(dataout, dataout.length,ip_sv,3000);
         socket.send(datagrout);
         //B4: khai bao DS de nhan
         byte[] buffin = new byte[1024];
