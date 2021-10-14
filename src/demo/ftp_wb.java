@@ -144,10 +144,6 @@ public class ftp_wb extends JFrame {
 
 					File image = new File("/home/tuancong/Downloads/output.jpg");
 					if (image.exists()) {
-//						System.out.println("Ten file: " + image.getName());
-//						System.out.println("Đường dẫn: " + image.getParent());
-//						System.out.println("Đường dẫn đầy đủ: " + image.getPath());
-//						System.out.println("Độ lớn: " + image.length() + " bytes");
 						lblINameInfo.setText(image.getName());
 						lblParantInfo.setText(image.getParent());
 						lblPathInfo.setText(image.getPath());
