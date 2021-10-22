@@ -16,14 +16,15 @@ public class UDP_clientb2 {
         {
             Scanner sc = new Scanner(System.in);
             String str = sc.nextLine();
-            if(str.equals("q")){
-                break;
-            }
+
             byte[] dataout = str.getBytes();
             InetAddress ip_sv = InetAddress.getByName("localhost");
             //B3: Dong goi va gui du lieu
             DatagramPacket datagrout = new DatagramPacket(dataout, dataout.length, ip_sv, 3000);
             socket.send(datagrout);
+            if(str.trim().equals("q")){
+                break;
+            }
             //B4: khai bao DS de nhan
             byte[] buffin = new byte[1024];
             DatagramPacket datain = new DatagramPacket(buffin, buffin.length);

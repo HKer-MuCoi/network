@@ -16,11 +16,14 @@ public class UDP_serverb2 {
             DatagramPacket datain = new DatagramPacket(buffin, buffin.length);
             socket.receive(datain);
             String string_in = new String(datain.getData(), 0, buffin.length);
-            if(string_in.equals("q")){
+            System.out.println(string_in.trim().equals("q"));
+            System.out.println(string_in.trim());
+            if(string_in.trim().equals("q")){
                 break;
             }
             string_in = string_in.replaceAll("[0-9]", "");
-            String result = new StringBuilder(string_in).reverse().toString();
+//            String result = new StringBuilder(string_in).reverse().toString();
+            String result = string_in.toLowerCase();
             //B3: gui tra client
             //B4: xu ly du lieu
             String dataout = "Server response: " + result.trim();
