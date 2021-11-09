@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import demo.helper.StringHelper;
+
 public class thuchanh_server {
 	public static void main(String[] args) throws IOException {
 		System.out.println("Server đã chạy");
@@ -59,7 +61,7 @@ class ThreadReply_1 extends Thread {
 					System.out.println("id-" + id + " đã dừng");
 
 				}
-				out.writeUTF("Sever trả về: " + sumFromString(noidung));
+				out.writeUTF("Sever trả về: " + StringHelper.sumFromString(noidung));
 				out.flush();
 			}
 			in.close();
