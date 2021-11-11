@@ -47,6 +47,21 @@ public class StringHelper {
         return Character.toUpperCase(s.charAt(0)) + s.substring(1);
     }
 
+    // đếm số lần xuất hiện của word trong string
+    static int countWord(@NotNull String str, @NotNull String word) {
+		int count = 0;
+		str.trim();
+		String result, sub;
+		int lenWord = word.length();
+		System.out.println(lenWord);
+		for (int i = 0; i < str.length() - lenWord - 1; i++) {
+			sub = str.substring(i, i + lenWord);
+			if (sub.equals(word))
+				count++;
+		}
+		return count;
+	}
+
 //    public static void main(String[] args){
 //        String a = "abvnAD1234124afg";
 //        String b = "alo anh la teo 13day";
