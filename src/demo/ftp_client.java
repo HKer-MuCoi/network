@@ -12,7 +12,7 @@ public class ftp_client {
         Socket socket = new Socket("127.0.0.1", 3000);
         DataInputStream datain = new DataInputStream(socket.getInputStream());
 
-        FileOutputStream output = new FileOutputStream("/home/tuancong/Downloads/Báo cáo Tuần 51  Tuấn.pptx");
+        FileOutputStream output = new FileOutputStream("/home/tuancong/Downloads/output.jpg");
 
         int is;
         byte[] data = new byte[10000];
@@ -23,7 +23,7 @@ public class ftp_client {
 
         System.out.println("Run finished");
 
-        File image = new File("/home/tuancong/Downloads/Báo cáo Tuần 51  Tuấn.pptx");
+        File image = new File("/home/tuancong/Downloads/output.jpg");
         if (image.exists()) {
             System.out.println("Ten file: " + image.getName());
             System.out.println("Đường dẫn: " + image.getParent());

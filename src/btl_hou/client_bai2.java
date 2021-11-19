@@ -95,7 +95,7 @@ public class client_bai2 extends JFrame {
         contentPane.add(lblRemotePort, gbc_lblRemotePort);
 
         txtRemotePort = new JTextField();
-        txtRemotePort.setText("17");
+        txtRemotePort.setText("3000");
         GridBagConstraints gbc_txtRemotePort = new GridBagConstraints();
         gbc_txtRemotePort.insets = new Insets(0, 0, 5, 0);
         gbc_txtRemotePort.fill = GridBagConstraints.HORIZONTAL;
@@ -136,11 +136,14 @@ public class client_bai2 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
+                    int port = Integer.parseInt(txtRemotePort.getText());
+                    System.out.println(port);
                     DatagramSocket socket = new DatagramSocket();
+                    socket.setSoTimeout(10000);
                     String str = txtSend.getText();
                     byte[] bufOut = str.getBytes();
                     InetAddress ip = InetAddress.getByName("localhost");
-                    DatagramPacket dataout = new DatagramPacket(bufOut, bufOut.length, ip, 3000);
+                    DatagramPacket dataout = new DatagramPacket(bufOut, bufOut.length, ip, port);
                     socket.send(dataout);
                     txtall.append("\nClient: " + str);
 
