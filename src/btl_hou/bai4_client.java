@@ -43,59 +43,21 @@ class transferfileClient {
 		System.out.print("Enter pass :");
 		pass = br.readLine();
 		String login = user + "-" + pass;
-
-//		File f = new File(filename);
-//		if (!f.exists()) {
-//			System.out.println("File not Exists...");
-//			dout.writeUTF("File not found");
-//			return;
-//		}
-
 		dout.writeUTF(login);
 
 		String msgFromServer = din.readUTF();
 		if (msgFromServer.equals("1")) {
-			System.out.println("Login successfully , sending file");
+			System.out.println("Login successfully , receiving file");
 			ReceiveFile();
 			return true;
 		}
 		System.out.println("Login failure, try again");
 		return false;
-//		if (msgFromServer.compareTo("File Already Exists") == 0) {
-//			String Option;
-//			System.out.println("File Already Exists. Want to OverWrite (Y/N) ?");
-//			Option = br.readLine();
-//			if (Option == "Y") {
-//				dout.writeUTF("Y");
-//			} else {
-//				dout.writeUTF("N");
-//				return;
-//			}
-//		}
-//
-//		System.out.println("Sending File ...");
-//		FileInputStream fin = new FileInputStream(f);
-//		int ch;
-//		do {
-//			ch = fin.read();
-//			dout.writeUTF(String.valueOf(ch));
-//		} while (ch != -1);
-//		fin.close();
-//		System.out.println(din.readUTF());
 
 	}
 
 	void ReceiveFile() throws Exception {
-//		String fileName;
-//		System.out.print("Enter File Name :");
-//		fileName = br.readLine();
-//		dout.writeUTF(fileName);
 		String msgFromServer = din.readUTF();
-//
-//		if (msgFromServer.compareTo("File Not Found") == 0) {
-//			System.out.println("File not found on Server ...");
-//			return;
-//		} else
 		if (msgFromServer.compareTo("READY") == 0) {
 			System.out.println("Receiving File ...");
 			File f = new File("/home/tuancong/Downloads/output.jpg");

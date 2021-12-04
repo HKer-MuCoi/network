@@ -23,8 +23,8 @@ class transferfile extends Thread {
 
 	DataInputStream din;
 	DataOutputStream dout;
-	private String user = "tuancong";
-	private String pass = "123456";
+	private final String user = "tuancong";
+	private final String pass = "123456";
 
 	transferfile(Socket soc) {
 		try {
@@ -35,16 +35,11 @@ class transferfile extends Thread {
 			start();
 
 		} catch (Exception ex) {
+			System.out.println(ex);
 		}
 	}
 
 	void SendFile() throws Exception {
-//		String filename = din.readUTF();
-//		File f = new File(filename);
-//		if (!f.exists()) {
-//			dout.writeUTF("File Not Found");
-//			return;
-//		} else {
 		dout.writeUTF("READY");
 		FileInputStream fin = new FileInputStream("/home/tuancong/Downloads/input.jpg");
 		int ch;
@@ -60,10 +55,7 @@ class transferfile extends Thread {
 	void Login() throws Exception {
 		String result = "0";
 		String login = din.readUTF();
-//		if (filename.compareTo("File not found") == 0) {
-//			return;
-//		}
-//		File f = new File(filename);
+
 		String[] parts = login.split("-");
 		if (parts[0].equals(user) && parts[1].equals(pass)) {
 			result = "1";
@@ -72,32 +64,6 @@ class transferfile extends Thread {
 		if (result.equals("1")) {
 			SendFile();
 		}
-//		String option;
-//
-//		if (f.exists()) {
-//			dout.writeUTF("File Already Exists");
-//			option = din.readUTF();
-//		} else {
-//			dout.writeUTF("SendFile");
-//			option = "Y";
-//		}
-//
-//		if (option.compareTo("Y") == 0) {
-//			FileOutputStream fout = new FileOutputStream(f);
-//			int ch;
-//			String temp;
-//			do {
-//				temp = din.readUTF();
-//				ch = Integer.parseInt(temp);
-//				if (ch != -1) {
-//					fout.write(ch);
-//				}
-//			} while (ch != -1);
-//			fout.close();
-//			dout.writeUTF("File Send Successfully");
-//		} else {
-//			return;
-//		}
 
 	}
 
@@ -119,6 +85,7 @@ class transferfile extends Thread {
 					System.exit(1);
 				}
 			} catch (Exception ex) {
+				System.out.println(ex);
 			}
 		}
 	}
